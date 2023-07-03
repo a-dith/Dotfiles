@@ -1,0 +1,58 @@
+/commands/custom/<Alt>F1                   xfce4-popup-whiskermenu
+/commands/custom/<Alt>F2                   xfce4-appfinder --collapsed
+/commands/custom/<Alt>F2/startup-notify    true
+/commands/custom/<Alt>F3/startup-notify    true
+/commands/custom/override                  true
+/commands/custom/<Primary><Alt>Delete      xflock4
+/commands/custom/<Primary><Alt>x           xkill
+/commands/custom/<Primary>Escape           xfdesktop --menu
+/commands/custom/<Primary><Shift>Escape    xfce4-taskmanager
+/commands/custom/<Primary><Shift>Print     xfce4-screenshooter -r
+/commands/custom/Print                     xfce4-screenshooter -fd 1
+/commands/custom/<Shift>Print              xfce4-screenshooter -wd 1
+/commands/custom/<Super>1                  /home/e15/scripts/yt-dl_downloader.sh
+/commands/custom/<Super>2                  /home/e15/scripts/open.sh
+/commands/custom/<Super>3                  /home/e15/scripts/trial.sh
+/commands/custom/<Super>4                  firefox --private-window "youtube.com"
+/commands/custom/<Super>a                  /home/e15/scripts/code_cpy.sh 1.txt
+/commands/custom/<Super>e                  exo-open --launch FileManager
+/commands/custom/<Super>f                  /usr/bin/firefox
+/commands/custom/<Super>KP_1               /home/e15/scripts/code_cpy.sh shell_gpt.txt
+/commands/custom/<Super>KP_7               /home/e15/scripts/brightness.sh 0
+/commands/custom/<Super>KP_8               /home/e15/scripts/brightness.sh 1
+/commands/custom/<Super>KP_9               /home/e15/scripts/brightness.sh 25
+/commands/custom/<Super>p                  xfce4-display-settings --minimal
+/commands/custom/<Super>q                  xfce4-clipman-history
+/commands/custom/<Super>t                  xfce4-terminal 
+/xfwm4/custom/<Alt>f                       fullscreen_key
+/xfwm4/custom/<Alt>F4                      close_window_key
+/xfwm4/custom/<Alt>F6                      stick_window_key
+/xfwm4/custom/<Alt>F7                      move_window_key
+/xfwm4/custom/<Alt>F8                      resize_window_key
+/xfwm4/custom/<Alt>F9                      hide_window_key
+/xfwm4/custom/<Alt><Shift>Tab              cycle_reverse_windows_key
+/xfwm4/custom/<Alt>space                   popup_menu_key
+/xfwm4/custom/<Alt>Tab                     cycle_windows_key
+/xfwm4/custom/<Control><Shift><Alt>Left    move_window_left_key
+/xfwm4/custom/<Control><Shift><Alt>Right   move_window_right_key
+/xfwm4/custom/<Control><Shift><Alt>Up      move_window_up_key
+/xfwm4/custom/Down                         down_key
+/xfwm4/custom/Escape                       cancel_key
+/xfwm4/custom/Left                         left_key
+/xfwm4/custom/override                     true
+/xfwm4/custom/<Primary><Super>Left         tile_down_left_key
+/xfwm4/custom/<Primary><Super>Right        tile_down_right_key
+/xfwm4/custom/Right                        right_key
+/xfwm4/custom/<Shift><Alt>Page_Down        lower_window_key
+/xfwm4/custom/<Shift><Alt>Page_Up          raise_window_key
+/xfwm4/custom/<Shift><Super>Left           tile_up_left_key
+/xfwm4/custom/<Super>d                     show_desktop_key
+/xfwm4/custom/<Super>Down                  tile_down_key
+/xfwm4/custom/<Super>Left                  tile_left_key
+/xfwm4/custom/<Super>Return                maximize_window_key
+/xfwm4/custom/<Super>Right                 tile_right_key
+/xfwm4/custom/<Super>Shift_L               tile_up_right_key
+/xfwm4/custom/<Super>space                 fill_window_key
+/xfwm4/custom/<Super>Tab                   switch_window_key
+/xfwm4/custom/<Super>Up                    tile_up_key
+/xfwm4/custom/Up                           up_key
