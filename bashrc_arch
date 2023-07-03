@@ -57,13 +57,20 @@ esac
 
 
 # my custom commands
-HISTCONTROL=ignoreboth          #any command begining with space or duplicates of ccommand already in history is not added to history
+HISTCONTROL=ignoreboth          #don't put duplicate lines, lines already present or lines starting with space in the history.
 HISTSIZE=2000
 HISTFILESIZE=10000
 
 sed -i '/^..$/d' ~/.bash_history #  delete lines consisting of exactly two characters.
 sed -i 's/^alias$//g' ~/.bash_history #delete line alias
 sed -i 's/^cls$//g' ~/.bash_history  #delete line cls
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+#Envirnment Variables
+#export BROWSER=lynx
+export BROWSER=firefox
 
 printf "\n"
 printf "   %s\n" "IP ADDR: $(curl ifconfig.me)"
@@ -105,10 +112,10 @@ if ${use_color} ; then
 
 	if [[ ${EUID} == 0 ]] ; then
 		#PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
-                PS1='\[\033[01;32m\][\w] \$ \[\033[00m\]'  #prompt 1 as  '[working directory] $'
+                PS1='\[\033[01;96m\][\w] \$ \[\033[00m\]'  #prompt 1 as  '[working directory] $'
 	else
 		#PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] '
-                PS1='\[\033[01;32m\][\w] \$ \[\033[00m\]'  #prompt 1 as  '[working directory] $'
+                PS1='\[\033[01;96m\][\w] \$ \[\033[00m\]'  #prompt 1 as  '[working directory] $'
  	fi
 
 	alias ls='ls --color=auto --sort=time'
@@ -126,56 +133,15 @@ fi
 
 unset use_color safe_term match_lhs sh
 
-alias df='df -h'          # human-readable sizes
-alias la='ls -AF'          #Show all files except . and ..  and show / for folder
-alias ..='cd ..;pwd;ls|head'
-alias as='cd /run/media/e15/'
-alias be='nano ~/.bashrc'
-alias bk='bk -w 180'
-alias bs='source ~/.bashrc'
-alias cls='clear'
-alias cpy='xclip -selection c'
-alias disk='df -h | grep -v -E '\''loop|0%|1%'\'''
-alias egrep='egrep --colour=auto'
-alias execute='chmod u+x'
-alias ffmpeg='ffmpeg -hide_banner'
-alias ffprobe='ffprobe  -hide_banner'
-alias fgrep='fgrep --colour=auto'
-alias grep='grep --colour=auto'
-alias hs='history |cut -c8-|sort|uniq|fzf|tr '\''\n'\'' '\'' '\''|cpy'
-alias install='sudo pacman -S '
-alias kk='cd ~/Downloads/'
-alias ll='ytr && ls --sort=time|mpv "$(head -n 1)"'
-alias lsd='ls -d */'
-alias nano='nano -l '
-alias nn='yt-dlp -f mp4 "$(xclip -o -select clipboard)" -o "%(id)s.%(ext)s"'
-alias now='date +"%T"'
-alias nowdate='date +"%d-%m-%Y"'
-alias path='echo -e ${PATH//:/\\n}'
-alias po='ls ~/Downloads |dmenu -i -l 20 -p Downloads_folder'
-alias pp='pushd ~/scripts/'
-alias qmv='qmv -f do'
-alias qq='echo $(xclip -o -selection clipboard) >> videos'
-alias sd='mpv --ytdl-format="bestvideo[ext=mp4][fps<=30][height<?1280]+bestaudio[ext=m4a]"  "$(xclip -o -selection clipboard)"'
-alias speed='speedtest-cli --simple>>1.txt|nowdate>>1.txt|now>>1.txt'
-alias uninstall='sudo pacman -R '
-alias update='sudo pacman -Syyu'
-alias vv='yt-dlp -w --no-mtime -f 140   -i "$(xclip -o -selection clipboard)" '
-alias ytd='yt-dlp -w --no-mtime -f "bestvideo[height<=?1080]+bestaudio[ext=m4a]" -a list.txt'
-alias ytr='yt-dlp -w --no-mtime -f "bestvideo[height<=?1080]+bestaudio[ext=m4a]"   -i "$(xclip -o -selection clipboard)" '
-
-
-
-
 xhost +local:root > /dev/null 2>&1
 
 # Bash won't get SIGWINCH if another process is in the foreground.
 # Enable checkwinsize so that bash will check the terminal size when
 # it regains control.  #65623
 # http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)
-shopt -s checkwinsize
+shopt -s checkwinsize #For proper line wrapping, command output formatting, and other terminal-related operations
 
-shopt -s expand_aliases
+shopt -s expand_aliases #Bash expands aliases defined in the current shell session
 
 # export QT_SELECT=4
 
