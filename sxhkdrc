@@ -1,0 +1,19 @@
+# Reload sxhkdrc config
+super + Escape
+    pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+
+# Open pictures folder
+super + alt + 5
+	sxiv -rt "$HOME/Pictures"
+
+# SSH into server(pi)
+super + alt + 6
+    xfce4-terminal -e "ssh pi@192.168.18.93"
+
+# print keyboard press
+super + F12
+    xfce4-terminal -e "xev | awk '/^KeyPress/ { a[NR+2]; next } NR in a { printf "%-3s %s\n", $6, $7 }'"
+
+# Generate password
+super + r ; g ; p
+    tr -dc "a-zA-Z0-9_#@.-" < /dev/urandom | head -c 14 | xclip -selection clipboard

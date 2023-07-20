@@ -18,6 +18,7 @@
 /commands/custom/<Super>e                  exo-open --launch FileManager
 /commands/custom/<Super>f                  /usr/bin/firefox
 /commands/custom/<Super>KP_1               /home/e15/scripts/code_cpy.sh shell_gpt.txt
+/commands/custom/<Super>KP_2               /home/e15/scripts/code_cpy.sh git.txt
 /commands/custom/<Super>KP_7               /home/e15/scripts/brightness.sh 0
 /commands/custom/<Super>KP_8               /home/e15/scripts/brightness.sh 1
 /commands/custom/<Super>KP_9               /home/e15/scripts/brightness.sh 25

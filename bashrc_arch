@@ -69,8 +69,8 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 #Envirnment Variables
-#export BROWSER=lynx
-export BROWSER=firefox
+export BROWSER=lynx
+#export BROWSER=firefox
 
 printf "\n"
 printf "   %s\n" "IP ADDR: $(curl ifconfig.me)"
@@ -140,11 +140,7 @@ xhost +local:root > /dev/null 2>&1
 # it regains control.  #65623
 # http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)
 shopt -s checkwinsize #For proper line wrapping, command output formatting, and other terminal-related operations
-
 shopt -s expand_aliases #Bash expands aliases defined in the current shell session
-
-# export QT_SELECT=4
-
 shopt -s histappend        # Enable history appending instead of overwriting.  
 shopt -s autocd          # no need to write cd directly write path to cd.
 
@@ -203,7 +199,7 @@ jq -r '.original_url+ " # " +.title'  l2.txt >>list.txt;
 rm l2.txt ;
 }
 . "$HOME/.cargo/env"
-mkcd() { mkdir -p "$@" && cd $_; }
+mkcd() { mkdir -p "$@" && cd $1; }
 
 geturls () {
     # source: http://stackoverflow.com/questions/2804467/spider-a-website-and-return-urls-only
