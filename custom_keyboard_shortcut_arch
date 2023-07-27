@@ -14,12 +14,12 @@
 /commands/custom/<Super>2                  /home/e15/scripts/open.sh
 /commands/custom/<Super>3                  /home/e15/scripts/trial.sh
 /commands/custom/<Super>4                  firefox --private-window "youtube.com"
-/commands/custom/<Super>5                  /home/e15/scripts/yt-dl_downloader_future.sh
 /commands/custom/<Super>a                  /home/e15/scripts/code_cpy.sh 1.txt
 /commands/custom/<Super>e                  exo-open --launch FileManager
 /commands/custom/<Super>f                  /usr/bin/firefox
 /commands/custom/<Super>KP_1               /home/e15/scripts/code_cpy.sh shell_gpt.txt
 /commands/custom/<Super>KP_2               /home/e15/scripts/code_cpy.sh git.txt
+/commands/custom/<Super>KP_3               /home/e15/scripts/code_cpy.sh moz_bookmark.txt
 /commands/custom/<Super>KP_7               /home/e15/scripts/brightness.sh 0
 /commands/custom/<Super>KP_8               /home/e15/scripts/brightness.sh 1
 /commands/custom/<Super>KP_9               /home/e15/scripts/brightness.sh 25
