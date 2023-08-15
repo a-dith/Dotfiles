@@ -1,3 +1,5 @@
+## SXHKD Config File
+
 # Reload sxhkdrc config
 super + Escape
     pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
@@ -21,3 +23,23 @@ super + F12
 # Generate password
 super + r ; g ; p
     tr -dc "a-zA-Z0-9_#@.-" < /dev/urandom | head -c 14 | xclip -selection clipboard
+
+# wallpaper next/prev/trash/favorites
+super + r ; w ; {n,p,t,f}
+    variety -{n,p,t,f}
+
+# Show wallpaper history,select,download
+super + r ; w ; {h,s,d}
+    variety --{history,selector,downloads}
+
+# wallpaper quotes next/previous
+super + r ; q ; {n,p}
+    variety --quotes-{next,previous}
+
+# Open sxiv config
+super + r ; i
+    xterm -fa Monospace -fs 11 -bg black -fg white -e nano $HOME/.config/sxiv/exec/key-handler
+
+# OCR screenshot
+super + o
+    xfce4-screenshooter -rs /tmp/ocr.png ; tesseract /tmp/ocr.png /tmp/ocr ; xclip -selection c < /tmp/ocr.txt

@@ -196,7 +196,7 @@ function md() {
 function cc() {
 yt-dlp  -j --flat-playlist -i $(xclip -o -select clipboard) >l2.txt 
 jq -r '.original_url+ " # " +.title'  l2.txt >>list.txt;
-rm l2.txt ;
+#rm l2.txt ;
 }
 . "$HOME/.cargo/env"
 mkcd() { mkdir -p "$@" && cd $1; }
