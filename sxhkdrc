@@ -4,10 +4,6 @@
 super + Escape
     pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 
-# Open sxhkd config
-super + r ; o ; c
-    xterm -fa Monospace -fs 11 -bg black -fg white -e nano $HOME/.config/sxhkd/sxhkdrc
-
 # Open pictures folder
 super + alt + 5
 	sxiv -rt "$HOME/Pictures"
@@ -17,8 +13,8 @@ super + alt + 6
     xfce4-terminal -e "ssh pi@192.168.18.93"
 
 # print keyboard press
-super + F12
-    xfce4-terminal -e "xev | awk '/^KeyPress/ { a[NR+2]; next } NR in a { printf "%-3s %s\n", $6, $7 }'"
+super + 6
+    xfce4-terminal -e "xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $8, $7 }'"
 
 # Generate password
 super + r ; g ; p
@@ -38,8 +34,25 @@ super + r ; q ; {n,p}
 
 # Open sxiv config
 super + r ; i
-    xterm -fa Monospace -fs 11 -bg black -fg white -e nano $HOME/.config/sxiv/exec/key-handler
+    xfce4-terminal -e "nano $HOME/.config/sxiv/exec/key-handler"
+
+# Open sxhkd config
+super + r ; o ; c
+    xfce4-terminal -e "nano $HOME/.config/sxhkd/sxhkdrc"
 
 # OCR screenshot
 super + o
-    xfce4-screenshooter -rs /tmp/ocr.png ; tesseract /tmp/ocr.png /tmp/ocr ; xclip -selection c < /tmp/ocr.txt
+    xfce4-screenshooter -rs /tmp/ocr.png ; tesseract /tmp/ocr.png /tmp/ocr ; cat /tmp/ocr.txt |tr -d '\n'| xclip -selection c
+
+# Open mozilla bookmark in private window
+super + b
+    #firefox --private-window "$(awk -F' #' '{print $2 " # " $1}' $HOME/moz_bookmark.txt |dmenu -p Bookmark_open -i -l 10 -nb black -nf white -sb dodgerblue -sf white -fn 'Monospace-12'|awk -F' #' '{print $2}')"
+    selected_url=$(awk -F' #' '{print $2 " # " $1}' $HOME/moz_bookmark.txt | dmenu -p Bookmark_open -i -l 10 -nb black -nf white -sb dodgerblue -sf white -fn 'Monospace-12' | awk -F' #' '{print $2}');firefox --private-window "$selected_url"
+
+# Trial
+super + z
+    cat $HOME/m2.txt |dmenu -p Bookmark_open -i -l 10 |xclip -selection c
+
+# Trial 2
+super + x ; c
+    xfce4-terminal -e "nano $HOME/.config/sxhkd/sxhkdrc"
